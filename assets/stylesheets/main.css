@@ -718,7 +718,7 @@ ul {
 }
 
 .upload-post .write-post button {
-    flex-basis: 90%;
+    /* flex-basis: 90%; */
     border-radius: 50px;
     color: #666666;
     border: 1px solid #E0DFDC;
@@ -727,9 +727,9 @@ ul {
     cursor: pointer;
 }
 
-.upload-post .write-post button:hover {
+/* .upload-post .write-post button:hover {
     background-color: #EBEBEB;
-}
+} */
 
 .upload-post .write-post button span {
     margin-left: 20px;
@@ -1095,4 +1095,45 @@ i {
     padding: 20px;
     border-radius: 8px;
     text-align: center;
+    height: 50vh;
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+
+.post {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.post-image {
+    max-width: 100%;
+    height: auto;
+}
+
+.post {
+    padding: 20px;
+    gap: 2vw;
+}
+
+
+.text-input {
+    /* vertical-align: top; */
+    height: 50%;
+    margin: 30px 0;
+    font-size: larger;
+    font-weight: 700;
+}
+
+
+
+.upload-post .write-post .post-picture-content button {
+    height: 5vh;
+    width: 5vw;
+    background-color: black;
+    color: white;
 }

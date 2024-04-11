@@ -100,5 +100,62 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+    const postPictureBtn = document.querySelector('.post-picture-btn');
+    const postPictureModal = document.querySelector('.post-picture-modal');
+    const postButton = document.querySelector('.post-button');
+    const textInput = document.querySelector('.text-input');
+    const imageInput = document.querySelector('.image-input');
+    const postsContainer = document.querySelector('.posts-container');
 
+    // Show the post picture modal when the button is clicked
+    postPictureBtn.addEventListener('click', function () {
+        postPictureModal.style.display = 'block';
+    });
+
+    // Handle post submission
+    postButton.addEventListener('click', function () {
+        const postContent = textInput.value.trim();
+        const postImage = imageInput.files[0]; // Get the selected image file
+
+        // Check if post content or image is not empty
+        if (postContent !== '' || postImage) {
+            // Create a new post element
+            const newPost = document.createElement('div');
+            newPost.classList.add('post');
+
+            // Add "Me" as the first child of the new post element
+            const mePost = document.createElement('h2');
+            mePost.textContent = 'Me : ';
+            newPost.appendChild(mePost);
+
+            // Create elements for the post content
+            const postText = document.createElement('p');
+            postText.textContent = postContent;
+            newPost.appendChild(postText);
+
+            // Check if there is an image selected
+            if (postImage) {
+                // Create an image element for the post
+                const postImageElement = document.createElement('img');
+                postImageElement.src = URL.createObjectURL(postImage);
+                postImageElement.classList.add('post-image');
+                newPost.appendChild(postImageElement);
+            }
+
+            // Insert new post element at the top of all posts
+            postsContainer.prepend(newPost);
+
+            // Clear input fields
+            textInput.value = '';
+            imageInput.value = '';
+
+            // Hide the post picture modal
+            postPictureModal.style.display = 'none';
+        } else {
+            // Show error message if post content and image are empty
+            alert('Please enter your post or select an image.');
+        }
+    });
+});
 
